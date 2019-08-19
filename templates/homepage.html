@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+<div class="container">
+
+    {% block content %}
+
+    <div class="container">
+        {% for obj in objects %}
+
+        <div class="row" style="width: 33%; padding: 5px">
+
+
+            <img src="../../media/{{ obj.normal_image_loc }}" alt="{{ obj.id }}">
+            <img src="../../media/{{ obj.depth_image_loc }}" alt="{{ obj.id }}">
+
+            <img src="../../media/{{ obj.processed_image_loc }}" alt="{{ obj.id }}">
+
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">ImageType: {{ obj.image_type }}</div>
+            <div class="col">Mean: {{ obj.mean }}</div>
+            <div class="col">Median: {{ obj.median }}</div>
+            <div class="col">Variance: {{ obj.variance }}</div>
+            <div class="col">Standard-Deviation: {{ obj.standard_deviation }}</div>
+        </div>
+        <br>
+        <br>
+        {% endfor %}
+    </div>
+
+
+    {% endblock %}
+</div>
